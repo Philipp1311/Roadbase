@@ -685,7 +685,8 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       nav { padding: 14px 20px; }
-      nav ul { display: none; }
+      nav:not(footer nav) ul { display: none; }
+      footer nav ul { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
       section { padding: 70px 20px; }
       .stats-bar { padding: 24px 20px; }
       .contact-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -992,7 +993,8 @@
     body.light .burger span { background: #111111; }
 
     @media (max-width: 768px) {
-      nav ul { display: none; }
+      nav:not(footer nav) ul { display: none; }
+      footer nav ul { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
       #theme-toggle { display: none; }
       .burger { display: flex; }
     }
