@@ -997,6 +997,17 @@
     body.light .mobile-menu { background: rgba(242,242,242,0.98) !important; border-bottom-color: rgba(204,17,17,0.3) !important; }
     #mobile-theme-toggle { color: rgba(255,255,255,0.35); }
     body.light #mobile-theme-toggle { color: rgba(0,0,0,0.35) !important; }
+
+    /* ── FORM VALIDATION ── */
+    input.field-error, select.field-error, textarea.field-error {
+      border-color: var(--red-bright) !important;
+      animation: shake 0.3s ease;
+    }
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-4px); }
+      75% { transform: translateX(4px); }
+    }
   </style>
 </head>
 <body>
@@ -1062,16 +1073,16 @@
       <div class="package-card">
         <div class="package-name">Starter</div>
         <div class="package-tagline">Kompakt · Effektiv · Schnell</div>
-        <div class="package-price">ab 499 <span>€</span></div>
+        <div class="package-price">ab 490 <span>€</span></div>
         <div class="package-period">pro Messetag · zzgl. MwSt.</div>
         <ul class="feature-list">
-          <li class="highlight">Anhänger 2,5 × 2,5 × 5,5m (13,75 m²)</li>
-          <li class="highlight">Plott von Logo & Grafikelementen aus hochwertiger Folie</li>
-          <li>Präsentationstisch</li>
-          <li>Innenbeleuchtung</li>
+          <li class="highlight">Anhänger 3×2 m (6 m²)</li>
+          <li>Klapptheke & Präsentationstisch</li>
+          <li>LED-Innenbeleuchtung</li>
           <li>2× Stromanschlüsse 230V</li>
-          <li>2× Stühle</li>
-          <li>Lieferung (1 € pro Km)</li>
+          <li>Branded Rollup-Halterungen (2 Stk.)</li>
+          <li>Abschließbares Staufach</li>
+          <li>Lieferung & Abholung im Umkreis 150 km</li>
         </ul>
         <button class="btn-outline" onclick="openModal('Starter')">Paket anfragen</button>
       </div>
@@ -1081,18 +1092,19 @@
         <div class="badge">⚡ Meistgebucht</div>
         <div class="package-name">Professional</div>
         <div class="package-tagline">Ausstrahlung · Komfort · Wirkung</div>
-        <div class="package-price">ab 899 <span>€</span></div>
+        <div class="package-price">ab 890 <span>€</span></div>
         <div class="package-period">pro Messetag · zzgl. MwSt.</div>
         <ul class="feature-list">
-          <li class="highlight">Anhänger 2,5 × 2,5 × 5,5m (13,75 m²)</li>
-          <li class="highlight">Digitaldruck in deinem Design aus hochwertiger Folie</li>
-          <li>Präsentationstisch</li>
-          <li>Innenbeleuchtung</li>
-          <li>2× Stromanschlüsse 230V</li>
-          <li>2× Stühle</li>
+          <li class="highlight">Anhänger 5×2,4 m (12 m²)</li>
+          <li class="highlight">Ausstellvordach mit Seitenteilen</li>
+          <li>Professionelle Messetheke</li>
           <li>LED-Spot-Beleuchtung, dimmbar</li>
+          <li>TV-Halterung 65" inkl. Media Player</li>
+          <li>4× 230V · 1× CEE 32A Anschluss</li>
           <li>Klimaanlage / Heizung</li>
-          <li>Lieferung (1 € pro Km)</li>
+          <li>Brandschutzbeklebung inklusive</li>
+          <li>Lieferung & Aufbau bundesweit</li>
+          <li>Technischer Support vor Ort</li>
         </ul>
         <button class="btn-primary" onclick="openModal('Professional')">Paket anfragen</button>
       </div>
@@ -1101,23 +1113,18 @@
       <div class="package-card">
         <div class="package-name">Premium</div>
         <div class="package-tagline">Showroom · Exklusiv · Unvergesslich</div>
-        <div class="package-price">ab 1.499 <span>€</span></div>
+        <div class="package-price">ab 1.490 <span>€</span></div>
         <div class="package-period">pro Messetag · zzgl. MwSt.</div>
         <ul class="feature-list">
-          <li class="highlight">Anhänger 2,5 × 2,5 × 5,5m (13,75 m²)</li>
-          <li class="highlight">Vollflächiger Digitaldruck in deinem Design aus hochwertiger Folie</li>
-          <li>Präsentationstisch</li>
-          <li>Innenbeleuchtung</li>
-          <li>2× Stromanschlüsse 230V</li>
-          <li>2× Stühle</li>
-          <li>LED-Spot-Beleuchtung, dimmbar</li>
-          <li>Klimaanlage / Heizung</li>
+          <li class="highlight">Anhänger 7,5×2,5 m (bis 20 m²)</li>
+          <li class="highlight">Erweiterbare Seitenausklappung</li>
           <li>Vollausgestatteter Innenausbau</li>
-          <li>Botanische Austattung</li>
-          <li>Bildschirm (optional, 1x1 m)</li>
-          <li>Stehtische + Hussen</li>
-          <li>Individuelle Folienbeklebung auf Austattung</li>
-          <li>Lieferung EU-weit (1 € pro Km)</li>
+          <li>Terrassenbereich mit Markise</li>
+          <li>LED-Videowall (optional, 2×2 m)</li>
+          <li>Klimatisierung Heizung/Kühlung</li>
+          <li>Konferenzbereich (Stehtische/Loungemöbel)</li>
+          <li>Individuelle Folienbeklebung</li>
+          <li>Lieferung, Aufbau & Abbau EU-weit</li>
           <li class="highlight">Exklusiver Projektmanager zugewiesen</li>
         </ul>
         <button class="btn-outline" onclick="openModal('Premium')">Paket anfragen</button>
@@ -1136,13 +1143,13 @@
     <div class="extras-grid">
       <div class="extra-item">
         <div class="extra-icon">📺</div>
-        <div class="extra-name">LED Bildschirm 1,5 × 1,5m</div>
+        <div class="extra-name">LED Videowall 2×2m</div>
         <div class="extra-desc">Hochwertiges Indoor-LED-Display für maximale Aufmerksamkeit.</div>
         <div class="extra-price">+ 290 €/Tag</div>
       </div>
       <div class="extra-item">
         <div class="extra-icon">🎙️</div>
-        <div class="extra-name">Soundanlage</div>
+        <div class="extra-name">Beschallungsanlage</div>
         <div class="extra-desc">Profi-PA-System mit Mikrofon und Playlist-Steuerung.</div>
         <div class="extra-price">+ 120 €/Tag</div>
       </div>
@@ -1160,8 +1167,8 @@
       </div>
       <div class="extra-item">
         <div class="extra-icon">🖨️</div>
-        <div class="extra-name">Individuelle Folierung auf Austattung</div>
-        <div class="extra-desc">Folierung/Beschriftung auf deiner Austattung in deinem Corporate Design.</div>
+        <div class="extra-name">Individuelle Folierung</div>
+        <div class="extra-desc">Vollflächige Fahrzeugfolierung in deinem Corporate Design.</div>
         <div class="extra-price">auf Anfrage</div>
       </div>
       <div class="extra-item">
@@ -1175,6 +1182,12 @@
         <div class="extra-name">5G Hotspot</div>
         <div class="extra-desc">Leistungsstarkes mobiles Internet mit bis zu 1 Gbit/s für alle Geräte.</div>
         <div class="extra-price">+ 60 €/Tag</div>
+      </div>
+      <div class="extra-item">
+        <div class="extra-icon">🔧</div>
+        <div class="extra-name">Techniker vor Ort</div>
+        <div class="extra-desc">Dedizierter Techniker für den gesamten Einsatzzeitraum.</div>
+        <div class="extra-price">+ 350 €/Tag</div>
       </div>
     </div>
   </div>
@@ -1217,38 +1230,33 @@
     <p class="section-label">Kontakt & Buchung</p>
     <h2 class="section-title">Bereit für deinen Auftritt?</h2>
     <div class="contact-grid">
-      <form id="contact-form" action="https://formspree.io/f/mbdbqvbq" method="POST" novalidate>
       <div class="contact-form">
-      <input type="hidden" name="_replyto" value="">
-      <input type="hidden" name="_subject" value="Neue Anfrage über roadbase.de">
-      <input type="text" name="_gotcha" style="display:none">
-
         <div class="form-row">
           <div class="field-group">
             <label for="c-name">Vorname</label>
-            <input type="text" id="c-name" name="vorname" placeholder="Max">
+            <input type="text" id="c-name" placeholder="Max">
           </div>
           <div class="field-group">
             <label for="c-last">Nachname</label>
-            <input type="text" id="c-last" name="nachname" placeholder="Mustermann">
+            <input type="text" id="c-last" placeholder="Mustermann">
           </div>
         </div>
         <div class="field-group">
           <label for="c-company">Unternehmen</label>
-          <input type="text" id="c-company" name="unternehmen" placeholder="Musterfirma GmbH">
+          <input type="text" id="c-company" placeholder="Musterfirma GmbH">
         </div>
         <div class="field-group">
           <label for="c-email">E-Mail</label>
-          <input type="email" id="c-email" name="email" placeholder="max@musterfirma.de">
+          <input type="email" id="c-email" placeholder="max@musterfirma.de">
         </div>
         <div class="field-group">
           <label for="c-phone">Telefon</label>
-          <input type="tel" id="c-phone" name="telefon" placeholder="+49 ...">
+          <input type="tel" id="c-phone" placeholder="+49 ...">
         </div>
         <div class="form-row">
           <div class="field-group">
             <label for="c-package">Gewünschtes Paket</label>
-            <select id="c-package" name="paket">
+            <select id="c-package">
               <option value="">Paket wählen...</option>
               <option>Starter</option>
               <option>Professional</option>
@@ -1258,20 +1266,19 @@
           </div>
           <div class="field-group">
             <label for="c-date">Veranstaltungsdatum</label>
-            <input type="date" id="c-date" name="datum">
+            <input type="date" id="c-date">
           </div>
         </div>
         <div class="field-group">
           <label for="c-location">Veranstaltungsort / Messe</label>
-          <input type="text" id="c-location" name="veranstaltungsort" placeholder="z. B. Messe München, IAA Frankfurt…">
+          <input type="text" id="c-location" placeholder="z. B. Messe München, IAA Frankfurt…">
         </div>
         <div class="field-group">
           <label for="c-msg">Nachricht / Besondere Anforderungen</label>
-          <textarea id="c-msg" name="nachricht" placeholder="Beschreibe deinen Bedarf, gewünschte Extras oder Fragen…"></textarea>
+          <textarea id="c-msg" placeholder="Beschreibe deinen Bedarf, gewünschte Extras oder Fragen…"></textarea>
         </div>
-        <button class="btn-primary" type="submit" style="align-self: flex-start;">Anfrage absenden</button>
+        <button class="btn-primary" onclick="submitContact()" style="align-self: flex-start;">Anfrage absenden</button>
       </div>
-      </form>
 
       <div class="contact-info">
         <div style="margin-bottom:36px;">
@@ -1329,7 +1336,7 @@
   <div class="modal">
     <button class="modal-close" onclick="document.getElementById('modal').classList.remove('open')">×</button>
     <div class="modal-title" id="modal-title">Paket anfragen</div>
-    <div class="modal-sub" id="modal-sub">Schreib uns kurz – wir melden uns schnellstmöglichst</div>
+    <div class="modal-sub" id="modal-sub">Schreib uns kurz – wir melden uns noch heute.</div>
     <div class="modal-form">
       <div class="field-group">
         <label>Dein Name</label>
@@ -1385,13 +1392,56 @@
   }
 
   async function submitContact() {
-    const form = document.getElementById('contact-form');
-    const email = document.getElementById('c-email').value;
-    const name = document.getElementById('c-name').value;
-    if (!name || !email) { alert('Bitte mindestens Name und E-Mail ausfüllen.'); return; }
+    // Pflichtfelder prüfen
+    const fields = [
+      { id: 'c-name',     label: 'Vorname' },
+      { id: 'c-last',     label: 'Nachname' },
+      { id: 'c-email',    label: 'E-Mail' },
+      { id: 'c-phone',    label: 'Telefon' },
+      { id: 'c-package',  label: 'Paket' },
+      { id: 'c-date',     label: 'Veranstaltungsdatum' },
+    ];
 
+    let missing = [];
+    // Reset previous error highlights
+    fields.forEach(f => {
+      const el = document.getElementById(f.id);
+      if (el) el.classList.remove('field-error');
+    });
+    fields.forEach(f => {
+      const el = document.getElementById(f.id);
+      if (!el || !el.value.trim()) {
+        missing.push(f.label);
+        if (el) el.classList.add('field-error');
+      }
+    });
+
+    // E-Mail Format prüfen
+    const email = document.getElementById('c-email').value.trim();
+    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      missing.push('E-Mail (ungültiges Format)');
+    }
+
+    if (missing.length > 0) {
+      // Fehlermeldung anzeigen
+      let errorBox = document.getElementById('form-error');
+      if (!errorBox) {
+        errorBox = document.createElement('div');
+        errorBox.id = 'form-error';
+        errorBox.style.cssText = 'background:#8B0000;color:#F0F0F0;padding:12px 16px;font-family:Barlow Condensed,sans-serif;font-size:0.85rem;letter-spacing:0.08em;margin-top:8px;border-left:3px solid #E81818;';
+        document.querySelector('.contact-form').appendChild(errorBox);
+      }
+      errorBox.innerHTML = '⚠ Bitte fülle alle Pflichtfelder aus:<br><strong>' + missing.join(', ') + '</strong>';
+      errorBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      return;
+    }
+
+    // Fehlerbox entfernen falls vorhanden
+    const errorBox = document.getElementById('form-error');
+    if (errorBox) errorBox.remove();
+
+    const form = document.getElementById('contact-form');
     const data = new FormData(form);
-    // Set reply-to dynamically
     data.set('_replyto', email);
 
     try {
