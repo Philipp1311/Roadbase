@@ -299,6 +299,10 @@
       position: relative;
     }
 
+    #anhaenger {
+      font-size:large;
+    }
+
     #packages::before {
       content: '';
       position: absolute;
@@ -1111,8 +1115,8 @@
   <div class="hero-road"></div>
   <div class="hero-content">
     <p class="hero-eyebrow">Messeauftritte · Office · Mobiler Verkaufsraum</p>
-    <h1 class="hero-title">Dein Auftritt.<br><span>Mobil & Kompakt</span></h1>
-    <p class="hero-sub">Professionelle Messeanhänger zur Miete – voll ausgestattet, schnell einsatzbereit und genau auf deinen Auftritt zugeschnitten.</p>
+    <h1 class="hero-title">Dein Auftritt!<br><span>Mobil & Kompakt</span></h1>
+    <p class="hero-sub">Professionelle Messeanhänger zur Miete – nach deinen Vorstellungen.<br> Schnell einsatzbereit und genau auf deinen Auftritt zugeschnitten.</p>
     <div class="hero-actions">
       <a href="#packages" onclick="document.getElementById('packages').scrollIntoView({behavior:'smooth'});history.pushState(null,'',' ');return false;" class="btn-primary">Pakete entdecken</a>
       <a href="#contact" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});history.pushState(null,'',' ');return false;" class="banner-outline">Termin anfragen</a>
@@ -1139,16 +1143,15 @@
       <!-- STARTER -->
       <div class="package-card">
         <div class="package-name">Starter</div>
-        <div class="package-tagline">Kompakt · Effektiv · Schnell</div>
+        <div class="package-tagline">Einsatzbereit · Effektiv · Schnell</div>
         <div class="package-price">ab 499 <span>€</span></div>
         <div class="package-period">pro Messetag · zzgl. MwSt.</div>
         <ul class="feature-list">
-          <li class="highlight">Anhänger 2,5x5,5 m (13,75 m²)</li>
-          <li>Klapptheke & Präsentationstisch</li>
+          <li id="anhaenger" class="highlight">Anhänger 2,5 x 5,5 m (13,75 m²)</li>
+          <li class="highlight">Teilfolierung einzelner Elemente mit hochwertiger Folie</li>
           <li>LED-Innenbeleuchtung</li>
           <li>2× Stromanschlüsse 230V</li>
-          <li>Abschließbares Staufach</li>
-          <li>Teilfolierung einzelner Elemente mit hochwertiger Folie</li>
+          <li>Klimaanlage / Heizung</li>
           <li>Lieferung (1€ pro Kilometer)</li>
         </ul>
         <button class="btn-outline" onclick="openModal('Starter', this)" aria-label="Starter-Paket anfragen">Paket anfragen</button>
@@ -1162,11 +1165,9 @@
         <div class="package-price">ab 899 <span>€</span></div>
         <div class="package-period">pro Messetag · zzgl. MwSt.</div>
         <ul class="feature-list">
-          <li class="highlight">Anhänger 2,5x5,5 m (13,75 m²)</li>
+          <li id="anhaenger" class="highlight">Anhänger 2,5 x 5,5 m (13,75 m²)</li>
           <li class="highlight">Folierung der Flächen im Digitaldruck mit hochwertiger Folie</li>
-          <li>Professioneller Präsentationstisch</li>
-          <li>LED-Spot-Beleuchtung, dimmbar</li>
-          <li>TV-Halterung 65" inkl. Media Player</li>
+          <li>LED-Innenbeleuchtung</li>
           <li>2× Stromanschlüsse 230V</li>
           <li>Klimaanlage / Heizung</li>
           <li>Lieferung (1€ pro Kilometer)</li>
@@ -1181,15 +1182,12 @@
         <div class="package-price">ab 1.499 <span>€</span></div>
         <div class="package-period">pro Messetag · zzgl. MwSt.</div>
         <ul class="feature-list">
-          <li class="highlight">Anhänger 2,5x5,5 m (13,75 m²)</li>
+          <li id="anhaenger" class="highlight">Anhänger 2,5 x 5,5 m (13,75 m²)</li>
           <li class="highlight">Vollflächige Beklebung des Anhängers im Digitaldruck</li>
-          <li>Vollausgestatteter Innenausbau<br>
-          (Möbelierung, Pflanzen, grundlegende Austattung)</li>
-          <li>Mobelierung für Außenbereich</li>
-          <li>LED-Bildschirm (optional, 1,5×1,5 m)</li>
+          <li class="highlight">Individuelle Folienbeklebung der Austattung</li>
+          <li>LED-Innenbeleuchtung</li>
+          <li>2× Stromanschlüsse 230V</li>
           <li>Klimaanlage / Heizung</li>
-          <li>Konferenzbereich (Stehtische/Loungemöbel)</li>
-          <li>Individuelle Folienbeklebung der Austattung</li>
           <li>Lieferung (1€ pro Kilometer)</li>
         </ul>
         <button class="btn-outline" onclick="openModal('Premium', this)" aria-label="Premium-Paket anfragen">Paket anfragen</button>
@@ -1231,12 +1229,6 @@
         <div class="extra-price">+ 150 €/Tag</div>
       </div>
       <div class="extra-item">
-        <div class="extra-icon">🖨️</div>
-        <div class="extra-name">Individuelle Folierung</div>
-        <div class="extra-desc">Vollflächige Folierung mit Digitaldruck in deinem Corporate Design.</div>
-        <div class="extra-price">auf Anfrage</div>
-      </div>
-      <div class="extra-item">
         <div class="extra-icon">☕</div>
         <div class="extra-name">Kaffeetheke</div>
         <div class="extra-desc">Professionelle Kaffeemaschine inkl. Zubehör für Kundenempfang.</div>
@@ -1253,6 +1245,36 @@
         <div class="extra-name">Mini-Kühlschrank</div>
         <div class="extra-desc">Kleiner Kühlschrank mit genug Platz für deine kühlen Erfrischungen.</div>
         <div class="extra-price">+ 90 €/Tag</div>
+      </div>
+      <div class="extra-item">
+        <div class="extra-icon">🪑</div>
+        <div class="extra-name">Präsentationstisch</div>
+        <div class="extra-desc">Professionelle Messetheke für Gespräche mit deinen Kunden.</div>
+        <div class="extra-price">+ 50 €/Tag</div>
+      </div>
+      <div class="extra-item">
+        <div class="extra-icon">🔒</div>
+        <div class="extra-name">Abschließbares Staufach</div>
+        <div class="extra-desc">Sicheres Versteck für deine Wertsachen.</div>
+        <div class="extra-price">+ 50 €/Tag</div>
+      </div>
+      <div class="extra-item">
+        <div class="extra-icon">💡</div>
+        <div class="extra-name">LED-Spot-Beleuchtung</div>
+        <div class="extra-desc">Dimmbare Lichter mit anpassbaren Farben</div>
+        <div class="extra-price">+ 80 €/Tag</div>
+      </div>
+      <div class="extra-item">
+        <div class="extra-icon">📺</div>
+        <div class="extra-name">Bildschirm</div>
+        <div class="extra-desc">Hochwertiger LED-Bildschirm mit Verbindungsmöglichkeiten</div>
+        <div class="extra-price">+ 100 €/Tag</div>
+      </div>
+      <div class="extra-item">
+        <div class="extra-icon">🪑</div>
+        <div class="extra-name">Konferenzbereich</div>
+        <div class="extra-desc">Möbilierung für Besprechungen mit Stehtischen und -Stühlen</div>
+        <div class="extra-price">+ 100 €/Tag</div>
       </div>
     </div>
   </div>
@@ -1368,14 +1390,14 @@
           <div class="contact-info-icon">⏱️</div>
           <div>
             <div class="contact-info-label">Erreichbarkeit</div>
-            <div class="contact-info-value">Mo–Do: 07:00–15:30 Uhr<br>Fr: 07:00–12:00 Uhr<br>Sa-So: Nur per Mail</div>
+            <div class="contact-info-value">Mo–Do: 07:00–15:30 Uhr<br>Fr: 07:00–12:00 Uhr<br>Sa-So: nicht erreichbar</div>
           </div>
         </div>
         <div class="contact-info-item">
           <div class="contact-info-icon">🚛</div>
           <div>
             <div class="contact-info-label">Einsatzgebiet</div>
-            <div class="contact-info-value">Deutschland, Österreich, Schweiz<br>und weitere EU-Länder auf Anfrage</div>
+            <div class="contact-info-value">Deutschland, Österreich, Schweiz (ggf. zuzügliche Kosten)<br>und weitere EU-Länder auf Anfrage</div>
           </div>
         </div>
       </div>
@@ -1403,7 +1425,7 @@
   <div class="modal">
     <button class="modal-close" onclick="closeModalAction()" aria-label="Dialogfenster schließen">×</button>
     <div class="modal-title" id="modal-title">Paket anfragen</div>
-    <div class="modal-sub" id="modal-sub">Schreib uns kurz – wir melden uns noch heute.</div>
+    <div class="modal-sub" id="modal-sub">Schreib uns kurz – wir melden uns schnellstmöglich.</div>
     <div class="modal-form">
       <div class="field-group">
         <label for="m-name">Dein Name</label>
