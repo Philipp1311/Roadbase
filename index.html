@@ -308,6 +308,14 @@
     }
 
     /* Platzhalterbild – ersetzen durch: <img src="dein-bild.jpg" alt="..." style="width:100%;display:block;"> */
+    .concept-viewer {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      min-height: 420px;
+      max-height: 75vh;
+      display: block;
+      background: transparent;
+    }
     .concept-media {
       aspect-ratio: 4 / 3;
       background: var(--dark2);
@@ -338,6 +346,19 @@
     @media (max-width: 900px) {
       .concept-grid { grid-template-columns: 1fr; gap: 40px; }
       .concept-media { order: -1; max-width: 480px; }
+      .concept-viewer {
+        order: -1;              /* Viewer über dem Text anzeigen */
+        min-height: 0;          /* feste Mindesthöhe aufheben */
+        aspect-ratio: 1 / 1;    /* quadratisch – nutzt Hochformat besser */
+        max-height: 65vh;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .concept-viewer {
+        aspect-ratio: 4 / 5;    /* auf kleinen Handys etwas höher als breit */
+        max-height: 60vh;
+      }
     }
 
     /* ── STATS BAR ── */
@@ -1363,7 +1384,7 @@
         field-of-view="28deg"
         shadow-intensity="1"
         exposure="1.1"
-        style="width:100%; aspect-ratio:4/3; min-height:420px; max-height:75vh; display:block; background:transparent;">
+        class="concept-viewer">
       </model-viewer>
     </div>
   </div>
