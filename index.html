@@ -310,9 +310,7 @@
     /* Platzhalterbild – ersetzen durch: <img src="dein-bild.jpg" alt="..." style="width:100%;display:block;"> */
     .concept-viewer {
       width: 100%;
-      aspect-ratio: 4 / 3;
-      min-height: 420px;
-      max-height: 75vh;
+      height: clamp(420px, 38vw, 70vh);
       display: block;
       background: transparent;
     }
@@ -347,17 +345,14 @@
       .concept-grid { grid-template-columns: 1fr; gap: 40px; }
       .concept-media { order: -1; max-width: 480px; }
       .concept-viewer {
-        order: -1;              /* Viewer über dem Text anzeigen */
-        min-height: 0;          /* feste Mindesthöhe aufheben */
-        aspect-ratio: 1 / 1;    /* quadratisch – nutzt Hochformat besser */
-        max-height: 65vh;
+        order: -1;                       /* Viewer über dem Text anzeigen */
+        height: min(90vw, 62vh);         /* füllt die Breite, bleibt aber im Bildschirm */
       }
     }
 
     @media (max-width: 480px) {
       .concept-viewer {
-        aspect-ratio: 4 / 5;    /* auf kleinen Handys etwas höher als breit */
-        max-height: 60vh;
+        height: min(105vw, 58vh);        /* auf kleinen Handys etwas höher */
       }
     }
 
@@ -1377,6 +1372,7 @@
         ar
         ar-modes="webxr scene-viewer quick-look"
         ar-placement="floor"
+        ar-scale="fixed"
         xr-environment
         camera-orbit="30deg 78deg 80%"
         min-camera-orbit="auto auto 40%"
