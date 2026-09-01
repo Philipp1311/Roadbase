@@ -409,7 +409,7 @@
     }
 
     .package-single {
-      max-width: 720px;
+      max-width: 880px;
       margin: 0 auto;
     }
 
@@ -463,6 +463,8 @@
     .feature-list {
       list-style: none;
       margin-bottom: 36px;
+      columns: 2;
+      column-gap: 32px;
     }
 
     .feature-list li {
@@ -474,9 +476,15 @@
       color: var(--light);
       border-bottom: 1px solid rgba(255,255,255,0.04);
       line-height: 1.4;
+      break-inside: avoid;
+      -webkit-column-break-inside: avoid;
     }
 
     .feature-list li:last-child { border-bottom: none; }
+
+    @media (max-width: 560px) {
+      .feature-list { columns: 1; }
+    }
 
     .feature-list li::before {
       content: '▸';
