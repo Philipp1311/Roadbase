@@ -296,6 +296,49 @@
 
     .faq-answer p { padding-top: 16px; }
 
+    /* ── FEATURE-LISTE (z. B. Paketinhalt) ── */
+    .feature-list {
+      list-style: none;
+      margin-top: 16px;
+      columns: 2;
+      column-gap: 32px;
+    }
+
+    .feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 7px 0;
+      font-size: 0.9rem;
+      color: var(--light);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      line-height: 1.4;
+      break-inside: avoid;
+      -webkit-column-break-inside: avoid;
+    }
+
+    .feature-list li:last-child { border-bottom: none; }
+
+    .feature-list li::before {
+      content: '▸';
+      color: var(--red);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .feature-list li.highlight {
+      color: var(--white);
+      font-weight: 500;
+    }
+
+    body.light .feature-list li { color: #555555; border-bottom-color: rgba(0,0,0,0.08); }
+    body.light .feature-list li.highlight { color: #000000; font-weight: 500; }
+    body.light .feature-list li::before { color: var(--red-dark); }
+
+    @media (max-width: 560px) {
+      .feature-list { columns: 1; }
+    }
+
     /* Light Mode für das FAQ */
     body.light .faq-item { background: #FFFFFF; border-color: #CCCCCC; }
     body.light .faq-item[open] { border-color: var(--red-dark); }
