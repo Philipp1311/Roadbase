@@ -455,9 +455,41 @@
       letter-spacing: 0.1em;
       color: var(--light);
       text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .package-price {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 4px 12px;
       margin-bottom: 28px;
       padding-bottom: 28px;
       border-bottom: 1px solid var(--mid);
+    }
+
+    .package-price-label {
+      width: 100%;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 4px;
+    }
+
+    .package-price-amount {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3rem;
+      line-height: 1;
+      letter-spacing: 0.02em;
+      color: var(--white);
+    }
+
+    .package-price-note {
+      font-size: 0.85rem;
+      color: var(--light);
+      line-height: 1.5;
     }
 
     .feature-list {
@@ -907,7 +939,11 @@
     body.light .package-card { background: #FFFFFF; }
     body.light .package-card.featured { background: #F5F5F5; }
     body.light .package-name { color: #000000; }
-    body.light .package-tagline { color: #666666; border-bottom-color: #CCCCCC; }
+    body.light .package-tagline { color: #666666; }
+    body.light .package-price { border-bottom-color: #CCCCCC; }
+    body.light .package-price-label { color: var(--red-dark); }
+    body.light .package-price-amount { color: #000000; }
+    body.light .package-price-note { color: #555555; }
     body.light .package-more { border-color: #CCCCCC; }
     body.light .package-more-title { color: #666666; }
     body.light .package-more-hint { color: #888888; }
@@ -1224,6 +1260,11 @@
       <div class="package-card featured">
         <div class="package-name">Mietpaket</div>
         <div class="package-tagline">Ausstrahlung · Komfort · Wirkung</div>
+        <div class="package-price">
+          <div class="package-price-label">Fixpreis</div>
+          <div class="package-price-amount">2.955,00&nbsp;€</div>
+          <div class="package-price-note">bis 3&nbsp;Tage · danach 500,00&nbsp;€ pro Tag</div>
+        </div>
         <ul class="feature-list">
           <li id="anhaenger" class="highlight">Anhänger 2,5 x 5,5 m</li>
           <li class="highlight">Teilfolierung im Digitaldruck mit hochwertiger Folie</li>
