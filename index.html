@@ -710,6 +710,10 @@
       color: var(--light);
     }
 
+    .date-sep {
+      color: var(--light);
+    }
+
     .contact-info-item {
       padding: 24px 0;
       border-bottom: 1px solid var(--mid);
@@ -973,6 +977,7 @@
     body.light #contact { background: #ffffff; }
     body.light .contact-info-value { color: #000000; }
     body.light .contact-tagline { color: #000000; }
+    body.light .date-sep { color: #000000; }
     body.light label { color: #000000; }
     body.light input, body.light select, body.light textarea {
       background: #FFFFFF;
@@ -1359,7 +1364,7 @@
             <label for="c-date-from">Veranstaltungszeitraum</label>
             <div style="display:flex;gap:8px;align-items:center;">
               <input type="date" id="c-date-from" aria-required="true" aria-label="Zeitraum von" style="flex:1;min-width:0;">
-              <span aria-hidden="true" style="color:var(--light);">–</span>
+              <span aria-hidden="true" class="date-sep">–</span>
               <input type="date" id="c-date-to" aria-label="Zeitraum bis (optional, leer lassen bei eintägigen Veranstaltungen)" style="flex:1;min-width:0;">
             </div>
           </div>
@@ -1452,7 +1457,7 @@
         <label for="m-date-from">Veranstaltungszeitraum</label>
         <div style="display:flex;gap:8px;align-items:center;">
           <input type="date" id="m-date-from" name="m-date-from" aria-label="Zeitraum von" style="flex:1;min-width:0;">
-          <span aria-hidden="true" style="color:var(--light);">–</span>
+          <span aria-hidden="true" class="date-sep">–</span>
           <input type="date" id="m-date-to" name="m-date-to" aria-label="Zeitraum bis (optional, leer lassen bei eintägigen Veranstaltungen)" style="flex:1;min-width:0;">
         </div>
       </div>
