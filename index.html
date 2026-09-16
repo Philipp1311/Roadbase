@@ -423,25 +423,11 @@
       margin: 0;
     }
 
-    /* Two separate elements instead of one <details> with a CSS "force
-       open" hack: some browsers hide collapsed <details> content via
-       content-visibility in addition to display, which a plain
-       "display: flex !important" override cannot undo. So: a plain,
-       always-visible block for desktop, and a real <details> dropdown
-       for mobile — same pattern the site already uses for nav vs.
-       .mobile-menu. */
-    .package-gallery-desktop {
+    /* Bildergalerie: auf allen Breakpoints immer sichtbar (kein Dropdown). */
+    .package-gallery {
       display: flex;
       flex-direction: column;
       height: 100%;
-    }
-
-    .package-gallery-mobile {
-      display: none;
-    }
-
-    .package-gallery-toggle {
-      display: none;
     }
 
     .package-media {
@@ -449,7 +435,7 @@
       width: 100%;
       overflow: hidden;
       background: var(--dark2);
-      border: 1px dashed var(--mid);
+      border: 1px solid var(--mid);
     }
 
     .package-media-img {
@@ -458,49 +444,129 @@
       height: 100%;
     }
 
+    /* ── IMAGE CAROUSEL (Mietpaket-Galerie) ── */
+    .image-carousel {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      outline: none;
+    }
+
+    .carousel-track {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .carousel-track::-webkit-scrollbar { display: none; }
+
+    .carousel-slide {
+      position: relative;
+      flex: 0 0 100%;
+      width: 100%;
+      height: 100%;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+    }
+
+    .carousel-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      -webkit-user-drag: none;
+      user-select: none;
+    }
+
+    .carousel-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.25);
+      background: rgba(13,13,13,0.55);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 2;
+      transition: background 0.2s, border-color 0.2s, transform 0.15s;
+      backdrop-filter: blur(4px);
+    }
+
+    .carousel-arrow svg { width: 18px; height: 18px; }
+
+    .carousel-arrow:hover {
+      background: var(--red-btn);
+      border-color: var(--red-btn);
+    }
+
+    .carousel-arrow:focus-visible {
+      outline: 2px solid var(--red-bright);
+      outline-offset: 2px;
+    }
+
+    .carousel-prev { left: 12px; }
+    .carousel-next { right: 12px; }
+
+    .carousel-dots {
+      position: absolute;
+      left: 50%;
+      bottom: 14px;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      z-index: 2;
+      padding: 6px 10px;
+      background: rgba(13,13,13,0.4);
+      border-radius: 999px;
+      backdrop-filter: blur(4px);
+    }
+
+    .carousel-dot {
+      width: 7px;
+      height: 7px;
+      padding: 0;
+      border: none;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.45);
+      cursor: pointer;
+      transition: background 0.2s, width 0.25s;
+    }
+
+    .carousel-dot:hover { background: rgba(255,255,255,0.75); }
+
+    .carousel-dot.active {
+      width: 20px;
+      background: var(--red-bright);
+    }
+
+    .carousel-dot:focus-visible {
+      outline: 2px solid var(--red-bright);
+      outline-offset: 2px;
+    }
+
+    @media (max-width: 480px) {
+      .carousel-arrow { width: 32px; height: 32px; }
+      .carousel-arrow svg { width: 15px; height: 15px; }
+    }
+
     @media (max-width: 900px) {
       .packages-grid { grid-template-columns: 1fr; gap: 32px; align-items: start; }
 
-      .package-gallery-desktop {
-        display: none;
-      }
-
-      .package-gallery-mobile {
-        display: flex;
-        flex-direction: column;
-        border: 1px solid var(--mid);
-      }
-
-      .package-gallery-toggle {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-        padding: 16px 18px;
-        cursor: pointer;
-        list-style: none;
-        font-family: 'Barlow Condensed', sans-serif;
-        font-size: 0.8rem;
-        letter-spacing: 0.15em;
-        text-transform: uppercase;
-        color: var(--light);
-      }
-
-      .package-gallery-toggle::-webkit-details-marker { display: none; }
-
-      .package-gallery-chevron {
-        flex-shrink: 0;
-        width: 16px;
-        height: 16px;
-        transition: transform 0.2s ease;
-      }
-
-      .package-gallery-mobile[open] .package-gallery-chevron { transform: rotate(180deg); }
-
-      .package-gallery-mobile .package-media {
+      .package-gallery .package-media {
         aspect-ratio: 4 / 3;
-        border: none;
-        border-top: 1px dashed var(--mid);
       }
     }
 
@@ -1056,8 +1122,12 @@
     body.light .package-note p { color: #000000; }
     body.light .package-note p strong { color: #000000; }
     body.light .package-media { background: #FFFFFF; border-color: #CCCCCC; }
-    body.light .package-gallery-mobile { border-color: #CCCCCC; }
-    body.light .package-gallery-toggle { color: #666666; }
+    body.light .carousel-arrow { background: rgba(255,255,255,0.75); border-color: rgba(0,0,0,0.15); color: #000000; }
+    body.light .carousel-arrow:hover { background: var(--red-btn); border-color: var(--red-btn); color: #FFFFFF; }
+    body.light .carousel-dots { background: rgba(255,255,255,0.55); }
+    body.light .carousel-dot { background: rgba(0,0,0,0.28); }
+    body.light .carousel-dot:hover { background: rgba(0,0,0,0.5); }
+    body.light .carousel-dot.active { background: var(--red-dark); }
     body.light .feature-list li { color: #555555; border-bottom-color: rgba(0,0,0,0.06); }
     body.light .feature-list li.highlight { color: #000000; font-weight: 500; }
 
@@ -1401,53 +1471,37 @@
           <button class="btn-primary" onclick="openModal('Professional', this)" aria-label="Anfrage stellen">Jetzt anfragen</button>
         </div>
       </div>
-      <!-- Desktop: always visible -->
-      <div class="package-gallery-desktop">
+      <!-- Galerie: auf allen Breakpoints sichtbar (Desktop & Mobil) -->
+      <div class="package-gallery">
         <div class="package-media">
-          <svg class="package-media-img" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Platzhalterbild – Testansicht, hier erscheint später ein echtes Foto vom Mietpaket">
-            <rect width="400" height="300" fill="#1A1A1A"/>
-            <defs>
-              <pattern id="ph-hatch-desktop" width="22" height="22" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
-                <rect width="22" height="22" fill="#1A1A1A"/>
-                <line x1="0" y1="0" x2="0" y2="22" stroke="#2F3234" stroke-width="3"/>
-              </pattern>
-            </defs>
-            <rect width="400" height="300" fill="url(#ph-hatch-desktop)"/>
-            <g transform="translate(200,136)">
-              <rect x="-24" y="-16" width="48" height="32" rx="4" fill="none" stroke="#AAAAAA" stroke-width="2.5"/>
-              <path d="M -24 -10 l 8 -8 h 32" fill="none" stroke="#AAAAAA" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <circle cx="0" cy="2" r="8" fill="none" stroke="#AAAAAA" stroke-width="2.5"/>
-            </g>
-            <text x="200" y="180" text-anchor="middle" fill="#AAAAAA" font-family="'Barlow Condensed', sans-serif" font-size="15" letter-spacing="2">PLATZHALTERBILD</text>
-          </svg>
+          <div class="image-carousel" role="region" aria-roledescription="Karussell" aria-label="Bildergalerie: Ansichten des Mietpakets" tabindex="0">
+            <div class="carousel-track">
+              <div class="carousel-slide" role="group" aria-roledescription="Bild" aria-label="1 von 5">
+                <img src="images/galerie-aussen-gesamt.jpg" alt="ROADBASE Messeanhänger mit STICK ON! Branding, aufgebaut mit ausgeklappter Markise vor einem Firmengebäude" loading="lazy">
+              </div>
+              <div class="carousel-slide" role="group" aria-roledescription="Bild" aria-label="2 von 5">
+                <img src="images/galerie-aussen-markise.jpg" alt="Seitenansicht des geöffneten Anhängers mit ausgeklappter Markise, Treppe und Empfangsbereich" loading="lazy">
+              </div>
+              <div class="carousel-slide" role="group" aria-roledescription="Bild" aria-label="3 von 5">
+                <img src="images/galerie-aussen-branding.jpg" alt="Nahaufnahme der Außenfolierung mit dem Schriftzug „STICK ON! – We provide safety“" loading="lazy">
+              </div>
+              <div class="carousel-slide" role="group" aria-roledescription="Bild" aria-label="4 von 5">
+                <img src="images/galerie-innen-lounge.jpg" alt="Innenraum des Anhängers mit Sitzbereich, Pflanze und Bildschirm mit ROADBASE-Logo" loading="lazy">
+              </div>
+              <div class="carousel-slide" role="group" aria-roledescription="Bild" aria-label="5 von 5">
+                <img src="images/galerie-innen-theke.jpg" alt="Theke im Innenraum mit Kapselmaschine, Barhockern und Sitzgelegenheit" loading="lazy">
+              </div>
+            </div>
+            <button type="button" class="carousel-arrow carousel-prev" aria-label="Vorheriges Bild">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m15 18-6-6 6-6"/></svg>
+            </button>
+            <button type="button" class="carousel-arrow carousel-next" aria-label="Nächstes Bild">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+            <div class="carousel-dots"></div>
+          </div>
         </div>
       </div>
-
-      <!-- Mobile: collapsible dropdown -->
-      <details class="package-gallery-mobile">
-        <summary class="package-gallery-toggle">
-          <span>Ansicht des Mietpakets</span>
-          <svg class="package-gallery-chevron" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg>
-        </summary>
-        <div class="package-media">
-          <svg class="package-media-img" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Platzhalterbild – Testansicht, hier erscheint später ein echtes Foto vom Mietpaket">
-            <rect width="400" height="300" fill="#1A1A1A"/>
-            <defs>
-              <pattern id="ph-hatch-mobile" width="22" height="22" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
-                <rect width="22" height="22" fill="#1A1A1A"/>
-                <line x1="0" y1="0" x2="0" y2="22" stroke="#2F3234" stroke-width="3"/>
-              </pattern>
-            </defs>
-            <rect width="400" height="300" fill="url(#ph-hatch-mobile)"/>
-            <g transform="translate(200,136)">
-              <rect x="-24" y="-16" width="48" height="32" rx="4" fill="none" stroke="#AAAAAA" stroke-width="2.5"/>
-              <path d="M -24 -10 l 8 -8 h 32" fill="none" stroke="#AAAAAA" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <circle cx="0" cy="2" r="8" fill="none" stroke="#AAAAAA" stroke-width="2.5"/>
-            </g>
-            <text x="200" y="180" text-anchor="middle" fill="#AAAAAA" font-family="'Barlow Condensed', sans-serif" font-size="15" letter-spacing="2">PLATZHALTERBILD</text>
-          </svg>
-        </div>
-      </details>
     </div>
   </div>
 </section>
@@ -1924,6 +1978,98 @@
       closeMobileMenu();
     }
   });
+
+  // ── Bildergalerie: Karussell (Mietpaket) ──
+  function initImageCarousels() {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    document.querySelectorAll('.image-carousel').forEach((carousel) => {
+      const track = carousel.querySelector('.carousel-track');
+      const slides = Array.from(carousel.querySelectorAll('.carousel-slide'));
+      const dotsWrap = carousel.querySelector('.carousel-dots');
+      const prevBtn = carousel.querySelector('.carousel-prev');
+      const nextBtn = carousel.querySelector('.carousel-next');
+      if (!track || slides.length === 0) return;
+
+      let activeIndex = 0;
+      let autoplayTimer = null;
+      let isPointerDown = false;
+
+      // Dots aufbauen
+      dotsWrap.innerHTML = '';
+      const dots = slides.map((_, i) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'carousel-dot';
+        dot.setAttribute('aria-label', 'Bild ' + (i + 1) + ' von ' + slides.length + ' anzeigen');
+        dot.addEventListener('click', () => { goTo(i); resetAutoplay(); });
+        dotsWrap.appendChild(dot);
+        return dot;
+      });
+
+      function setActive(i) {
+        activeIndex = i;
+        dots.forEach((d, di) => {
+          d.classList.toggle('active', di === i);
+          d.setAttribute('aria-current', di === i ? 'true' : 'false');
+        });
+      }
+
+      function goTo(i, behavior) {
+        const clamped = (i + slides.length) % slides.length;
+        slides[clamped].scrollIntoView({
+          behavior: behavior || (prefersReducedMotion ? 'auto' : 'smooth'),
+          block: 'nearest',
+          inline: 'start'
+        });
+      }
+
+      if (prevBtn) prevBtn.addEventListener('click', () => { goTo(activeIndex - 1); resetAutoplay(); });
+      if (nextBtn) nextBtn.addEventListener('click', () => { goTo(activeIndex + 1); resetAutoplay(); });
+
+      carousel.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(activeIndex - 1); resetAutoplay(); }
+        if (e.key === 'ArrowRight') { e.preventDefault(); goTo(activeIndex + 1); resetAutoplay(); }
+      });
+
+      // Aktiven Punkt beim Scrollen/Swipen synchron halten
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && entry.intersectionRatio > 0.6) {
+            const idx = slides.indexOf(entry.target);
+            if (idx !== -1) setActive(idx);
+          }
+        });
+      }, { root: track, threshold: [0.6] });
+      slides.forEach((s) => io.observe(s));
+
+      setActive(0);
+
+      function startAutoplay() {
+        if (prefersReducedMotion || slides.length < 2 || isPointerDown) return;
+        stopAutoplay();
+        autoplayTimer = setInterval(() => goTo(activeIndex + 1), 5500);
+      }
+      function stopAutoplay() {
+        if (autoplayTimer) { clearInterval(autoplayTimer); autoplayTimer = null; }
+      }
+      function resetAutoplay() { stopAutoplay(); startAutoplay(); }
+
+      carousel.addEventListener('mouseenter', stopAutoplay);
+      carousel.addEventListener('mouseleave', startAutoplay);
+      carousel.addEventListener('focusin', stopAutoplay);
+      carousel.addEventListener('focusout', startAutoplay);
+      track.addEventListener('pointerdown', () => { isPointerDown = true; stopAutoplay(); });
+      track.addEventListener('pointerup', () => { isPointerDown = false; startAutoplay(); });
+      track.addEventListener('pointercancel', () => { isPointerDown = false; startAutoplay(); });
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) stopAutoplay(); else startAutoplay();
+      });
+
+      startAutoplay();
+    });
+  }
+  initImageCarousels();
 </script>
 
 </body>
