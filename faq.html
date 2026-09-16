@@ -233,6 +233,11 @@
     body.light strong { color: #000000; }
     body.light a { color: #000000; }
     body.light a:hover { color: var(--red-dark); }
+    /* Skip-Link bleibt weiß auf rotem Hintergrund (sonst überschreibt die
+       generische "body.light a"-Regel die Schriftfarbe mit Schwarz –
+       Schwarz auf Rot fällt unter den nötigen Kontrast von 4,5:1). */
+    body.light .skip-link,
+    body.light .skip-link:hover { color: #FFFFFF; }
     body.light .info-item p:last-child { color: #000000; }
     body.light .section { border-bottom-color: #CCCCCC; }
     body.light footer { background: #EBEBEB; border-top-color: #CCCCCC; }
