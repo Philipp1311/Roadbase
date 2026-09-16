@@ -20,6 +20,7 @@
       --mid: #2F3234;
       --light: #AAAAAA;
       --white: #FFFFFF;
+      --h3-color: var(--white); /* Zwischenüberschriften: weiß im Dark Mode */
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -218,6 +219,7 @@
 
     /* ── LIGHT MODE ── */
     body.light {
+      --h3-color: #000000; /* Zwischenüberschriften: schwarz im Light Mode */
       background: #F2F2F2;
       color: #000000;
     }
@@ -233,6 +235,12 @@
     body.light strong { color: #000000; }
     body.light a { color: #000000; }
     body.light a:hover { color: var(--red-dark); }
+    /* Skip-Link bleibt weiß auf rotem Hintergrund (sonst überschreibt die
+       generische "body.light a"-Regel die Schriftfarbe mit Schwarz –
+       Schwarz auf Rot fällt unter den nötigen Kontrast von 4,5:1). */
+    body.light .skip-link,
+    body.light .skip-link:hover { color: #FFFFFF; }
+    body.light .info-item p:first-child { color: #666666; }
     body.light .info-item p:last-child { color: #000000; }
     body.light .section { border-bottom-color: #CCCCCC; }
     body.light footer { background: #EBEBEB; border-top-color: #CCCCCC; }
@@ -271,10 +279,10 @@
   <section class="section" aria-labelledby="ueberblick-title">
     <h2 id="ueberblick-title">1. Datenschutz auf einen Blick</h2>
 
-    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--white);margin:24px 0 8px;">Allgemeine Hinweise</h3>
+    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--h3-color);margin:24px 0 8px;">Allgemeine Hinweise</h3>
     <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können. Ausführliche Informationen zum Thema Datenschutz entnehmen Sie unserer unter diesem Text aufgeführten Datenschutzerklärung.</p>
 
-    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--white);margin:24px 0 8px;">Datenerfassung auf dieser Website</h3>
+    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--h3-color);margin:24px 0 8px;">Datenerfassung auf dieser Website</h3>
     <p><strong>Wer ist verantwortlich für die Datenerfassung auf dieser Website?</strong><br>
     Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Abschnitt „Hinweis zur Verantwortlichen Stelle" in dieser Datenschutzerklärung entnehmen.</p>
     <p><strong>Wie erfassen wir Ihre Daten?</strong><br>
@@ -290,7 +298,7 @@
     <h2 id="hosting-title">2. Hosting</h2>
     <p>Wir hosten die Inhalte unserer Website bei folgendem Anbieter:</p>
 
-    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--white);margin:24px 0 8px;">Strato</h3>
+    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--h3-color);margin:24px 0 8px;">Strato</h3>
     <p>Anbieter ist die Strato AG, Otto-Ostrowski-Straße 7, 10249 Berlin (nachfolgend „Strato"). Wenn Sie unsere Website besuchen, erfasst Strato verschiedene Logfiles inklusive Ihrer IP-Adressen. Weitere Informationen entnehmen Sie der Datenschutzerklärung von Strato: <a href="https://www.strato.de/datenschutz/" target="_blank" rel="noopener noreferrer">https://www.strato.de/datenschutz/</a>.</p>
     <p>Die Verwendung von Strato erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Wir haben ein berechtigtes Interesse an einer möglichst zuverlässigen Darstellung unserer Website.</p>
     <p><strong>Auftragsverarbeitung:</strong> Wir haben einen Vertrag über Auftragsverarbeitung (AVV) zur Nutzung des oben genannten Dienstes geschlossen. Hierbei handelt es sich um einen datenschutzrechtlich vorgeschriebenen Vertrag, der gewährleistet, dass dieser die personenbezogenen Daten unserer Websitebesucher nur nach unseren Weisungen und unter Einhaltung der DSGVO verarbeitet.</p>
@@ -300,11 +308,11 @@
   <section class="section" aria-labelledby="allgemein-title">
     <h2 id="allgemein-title">3. Allgemeine Hinweise und Pflichtinformationen</h2>
 
-    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--white);margin:24px 0 8px;">Datenschutz</h3>
+    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--h3-color);margin:24px 0 8px;">Datenschutz</h3>
     <p>Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend den gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.</p>
     <p>Wir weisen darauf hin, dass die Datenübertragung im Internet (z. B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich.</p>
 
-    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--white);margin:24px 0 8px;">Hinweis zur verantwortlichen Stelle</h3>
+    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--h3-color);margin:24px 0 8px;">Hinweis zur verantwortlichen Stelle</h3>
     <p>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</p>
     <p>
       <strong>Modiscript-Schlegel-Werbung GmbH</strong><br>
@@ -316,7 +324,7 @@
     </p>
     <p>Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten entscheidet.</p>
 
-    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--white);margin:24px 0 8px;">Datenschutzbeauftragter</h3>
+    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--h3-color);margin:24px 0 8px;">Datenschutzbeauftragter</h3>
     <p>Wir haben einen Datenschutzbeauftragten benannt:</p>
     <p>
       <strong>audius GmbH</strong><br>
@@ -327,35 +335,35 @@
       E-Mail: <a href="mailto:info@audius.de">info@audius.de</a>
     </p>
 
-    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--white);margin:24px 0 8px;">Speicherdauer</h3>
+    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--h3-color);margin:24px 0 8px;">Speicherdauer</h3>
     <p>Soweit innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt wurde, verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck für die Datenverarbeitung entfällt. Anfragedaten zu Mietpaketen speichern wir für die Dauer der Bearbeitung und – im Falle eines Vertragsabschlusses – im Rahmen der gesetzlichen Aufbewahrungsfristen. Wenn Sie ein berechtigtes Löschersuchen geltend machen oder eine Einwilligung zur Datenverarbeitung widerrufen, werden Ihre Daten gelöscht, sofern wir keine anderen rechtlich zulässigen Gründe für die Speicherung Ihrer personenbezogenen Daten haben (z. B. steuer- oder handelsrechtliche Aufbewahrungsfristen); im letztgenannten Fall erfolgt die Löschung nach Fortfall dieser Gründe.</p>
 
-    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--white);margin:24px 0 8px;">Allgemeine Hinweise zu den Rechtsgrundlagen</h3>
+    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--h3-color);margin:24px 0 8px;">Allgemeine Hinweise zu den Rechtsgrundlagen</h3>
     <p>Sofern Sie in die Datenverarbeitung eingewilligt haben, verarbeiten wir Ihre personenbezogenen Daten auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO bzw. Art. 9 Abs. 2 lit. a DSGVO. Sind Ihre Daten zur Vertragserfüllung oder zur Durchführung vorvertraglicher Maßnahmen erforderlich – etwa bei einer Miet- oder Buchungsanfrage für einen Messeanhänger –, verarbeiten wir Ihre Daten auf Grundlage des Art. 6 Abs. 1 lit. b DSGVO. Des Weiteren verarbeiten wir Ihre Daten, sofern diese zur Erfüllung einer rechtlichen Verpflichtung erforderlich sind, auf Grundlage von Art. 6 Abs. 1 lit. c DSGVO. Die Datenverarbeitung kann ferner auf Grundlage unseres berechtigten Interesses nach Art. 6 Abs. 1 lit. f DSGVO erfolgen.</p>
 
-    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--white);margin:24px 0 8px;">Hinweis zur Datenweitergabe in die USA</h3>
+    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--h3-color);margin:24px 0 8px;">Hinweis zur Datenweitergabe in die USA</h3>
     <p>Für den Versand unserer Anfrageformulare nutzen wir den Dienst Formspree eines US-amerikanischen Anbieters (siehe Abschnitt „Datenerfassung auf dieser Website"). Zudem werden Schriftarten über Google Fonts geladen (siehe Abschnitt „Plugins und Tools"). Wenn Sie unsere Formulare nutzen oder die Website aufrufen, können dadurch personenbezogene Daten (z. B. IP-Adresse, Formularinhalte) in die USA übertragen und dort verarbeitet werden. Wir weisen darauf hin, dass in den USA kein mit der EU vollständig vergleichbares Datenschutzniveau garantiert werden kann.</p>
 
-    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--white);margin:24px 0 8px;">Widerruf Ihrer Einwilligung zur Datenverarbeitung</h3>
+    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--h3-color);margin:24px 0 8px;">Widerruf Ihrer Einwilligung zur Datenverarbeitung</h3>
     <p>Viele Datenverarbeitungsvorgänge sind nur mit Ihrer ausdrücklichen Einwilligung möglich. Sie können eine bereits erteilte Einwilligung jederzeit widerrufen. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Datenverarbeitung bleibt vom Widerruf unberührt.</p>
 
-    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--white);margin:24px 0 8px;">Widerspruchsrecht gegen die Datenerhebung (Art. 21 DSGVO)</h3>
+    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--h3-color);margin:24px 0 8px;">Widerspruchsrecht gegen die Datenerhebung (Art. 21 DSGVO)</h3>
     <p style="text-transform:uppercase;font-size:0.85rem;">Wenn die Datenverarbeitung auf Grundlage von Art. 6 Abs. 1 lit. e oder f DSGVO erfolgt, haben Sie jederzeit das Recht, aus Gründen, die sich aus Ihrer besonderen Situation ergeben, gegen die Verarbeitung Ihrer personenbezogenen Daten Widerspruch einzulegen; dies gilt auch für ein auf diese Bestimmungen gestütztes Profiling. Die jeweilige Rechtsgrundlage, auf denen eine Verarbeitung beruht, entnehmen Sie dieser Datenschutzerklärung. Wenn Sie Widerspruch einlegen, werden wir Ihre betroffenen personenbezogenen Daten nicht mehr verarbeiten, es sei denn, wir können zwingende schutzwürdige Gründe für die Verarbeitung nachweisen (Widerspruch nach Art. 21 Abs. 1 DSGVO).</p>
     <p style="text-transform:uppercase;font-size:0.85rem;">Werden Ihre personenbezogenen Daten verarbeitet, um Direktwerbung zu betreiben, so haben Sie das Recht, jederzeit Widerspruch gegen die Verarbeitung Sie betreffender personenbezogener Daten zum Zwecke derartiger Werbung einzulegen (Widerspruch nach Art. 21 Abs. 2 DSGVO).</p>
 
-    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--white);margin:24px 0 8px;">Beschwerderecht bei der zuständigen Aufsichtsbehörde</h3>
+    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--h3-color);margin:24px 0 8px;">Beschwerderecht bei der zuständigen Aufsichtsbehörde</h3>
     <p>Im Falle von Verstößen gegen die DSGVO steht den Betroffenen ein Beschwerderecht bei einer Aufsichtsbehörde, insbesondere in dem Mitgliedstaat ihres gewöhnlichen Aufenthalts, ihres Arbeitsplatzes oder des Orts des mutmaßlichen Verstoßes zu.</p>
 
-    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--white);margin:24px 0 8px;">Recht auf Datenübertragbarkeit</h3>
+    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--h3-color);margin:24px 0 8px;">Recht auf Datenübertragbarkeit</h3>
     <p>Sie haben das Recht, Daten, die wir auf Grundlage Ihrer Einwilligung oder in Erfüllung eines Vertrags automatisiert verarbeiten, an sich oder an einen Dritten in einem gängigen, maschinenlesbaren Format aushändigen zu lassen.</p>
 
-    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--white);margin:24px 0 8px;">Auskunft, Berichtigung und Löschung</h3>
+    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--h3-color);margin:24px 0 8px;">Auskunft, Berichtigung und Löschung</h3>
     <p>Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung und ggf. ein Recht auf Berichtigung oder Löschung dieser Daten. Hierzu sowie zu weiteren Fragen zum Thema personenbezogene Daten können Sie sich jederzeit an uns wenden.</p>
 
-    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--white);margin:24px 0 8px;">Recht auf Einschränkung der Verarbeitung</h3>
+    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--h3-color);margin:24px 0 8px;">Recht auf Einschränkung der Verarbeitung</h3>
     <p>Sie haben das Recht, die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen. Hierzu können Sie sich jederzeit an uns wenden.</p>
 
-    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--white);margin:24px 0 8px;">SSL- bzw. TLS-Verschlüsselung</h3>
+    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--h3-color);margin:24px 0 8px;">SSL- bzw. TLS-Verschlüsselung</h3>
     <p>Diese Seite nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte, wie zum Beispiel Ihrer Miet- und Buchungsanfragen, eine SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von „http://" auf „https://" wechselt und an dem Schloss-Symbol in Ihrer Browserzeile.</p>
   </section>
 
@@ -363,18 +371,18 @@
   <section class="section" aria-labelledby="datenerfassung-title">
     <h2 id="datenerfassung-title">4. Datenerfassung auf dieser Website</h2>
 
-    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--white);margin:24px 0 8px;">Cookies und lokale Speicherung</h3>
+    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--h3-color);margin:24px 0 8px;">Cookies und lokale Speicherung</h3>
     <p>Diese Website verwendet keine Cookies zu Analyse-, Tracking- oder Werbezwecken. Es wird lediglich Ihre Auswahl des Farbschemas (heller oder dunkler Modus) im lokalen Speicher Ihres Browsers (Local Storage) abgelegt, damit die Einstellung bei Ihrem nächsten Besuch erhalten bleibt. Dabei werden keine personenbezogenen Daten erfasst und keine Daten an uns oder Dritte übertragen. Die Speicherung ist für diese von Ihnen gewünschte Funktion erforderlich (§ 25 Abs. 2 Nr. 2 TTDSG). Sie können den lokalen Speicher jederzeit über die Einstellungen Ihres Browsers löschen.</p>
 
-    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--white);margin:24px 0 8px;">Anfrage- und Kontaktformulare</h3>
+    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--h3-color);margin:24px 0 8px;">Anfrage- und Kontaktformulare</h3>
     <p>Auf dieser Website können Sie über verschiedene Formulare mit uns in Kontakt treten: über das allgemeine Kontaktformular, über die Schnellanfrage zu einem Mietpaket (Starter, Professional oder Premium) sowie durch die Auswahl gewünschter Extras. Dabei verarbeiten wir die von Ihnen angegebenen Daten – insbesondere Name, E-Mail-Adresse, Telefonnummer, Unternehmen, gewünschtes Mietpaket, ausgewählte Extras, Veranstaltungsdatum und -ort sowie Ihre Nachricht – zwecks Bearbeitung Ihrer Anfrage und für den Fall von Anschlussfragen. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.</p>
     <p>Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage mit der Erfüllung eines Vertrags zusammenhängt oder zur Durchführung vorvertraglicher Maßnahmen – etwa der Anmietung eines Messeanhängers – erforderlich ist. In allen übrigen Fällen beruht die Verarbeitung auf unserem berechtigten Interesse an der effektiven Bearbeitung der an uns gerichteten Anfragen (Art. 6 Abs. 1 lit. f DSGVO).</p>
 
-    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--white);margin:24px 0 8px;">Formspree</h3>
+    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--h3-color);margin:24px 0 8px;">Formspree</h3>
     <p>Für die technische Übermittlung der Formulardaten nutzen wir den Dienst Formspree des Anbieters Formspree Inc. mit Sitz in den USA. Wenn Sie eines unserer Formulare absenden, werden die eingegebenen Daten an die Server von Formspree übertragen und von dort per E-Mail an uns weitergeleitet. Dabei kann auch Ihre IP-Adresse verarbeitet werden. Weitere Informationen entnehmen Sie der Datenschutzerklärung von Formspree: <a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">https://formspree.io/legal/privacy-policy/</a>.</p>
     <p>Die Nutzung von Formspree erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Wir haben ein berechtigtes Interesse an einer zuverlässigen und komfortablen Übermittlung Ihrer Anfragen.</p>
 
-    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--white);margin:24px 0 8px;">Anfrage per E-Mail oder Telefon</h3>
+    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--h3-color);margin:24px 0 8px;">Anfrage per E-Mail oder Telefon</h3>
     <p>Wenn Sie uns per E-Mail oder Telefon kontaktieren, wird Ihre Anfrage inklusive aller daraus hervorgehenden personenbezogenen Daten zum Zwecke der Bearbeitung Ihres Anliegens bei uns gespeichert und verarbeitet. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter. Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO.</p>
   </section>
 
@@ -382,7 +390,7 @@
   <section class="section" aria-labelledby="plugins-title">
     <h2 id="plugins-title">5. Plugins und Tools</h2>
 
-    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--white);margin:24px 0 8px;">Google Fonts</h3>
+    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--h3-color);margin:24px 0 8px;">Google Fonts</h3>
     <p>Diese Seite nutzt zur einheitlichen Darstellung von Schriftarten Google Fonts, bereitgestellt von Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland. Beim Aufruf einer Seite lädt Ihr Browser die benötigten Fonts in seinen Cache. Hierzu muss der von Ihnen verwendete Browser Verbindung zu den Servern von Google aufnehmen; hierdurch erlangt Google Kenntnis darüber, dass über Ihre IP-Adresse diese Website aufgerufen wurde. Die Nutzung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Wir haben ein berechtigtes Interesse an der einheitlichen Darstellung des Schriftbildes auf unserer Website. Weitere Informationen: <a href="https://developers.google.com/fonts/faq" target="_blank" rel="noopener noreferrer">https://developers.google.com/fonts/faq</a>.</p>
   </section>
 
@@ -390,7 +398,7 @@
   <section class="section" aria-labelledby="vertrag-title">
     <h2 id="vertrag-title">6. Mietanfragen und Vertragsdaten</h2>
 
-    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--white);margin:24px 0 8px;">Verarbeiten von Kunden- und Vertragsdaten</h3>
+    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--h3-color);margin:24px 0 8px;">Verarbeiten von Kunden- und Vertragsdaten</h3>
     <p>Wir erheben, verarbeiten und nutzen personenbezogene Kunden- und Vertragsdaten zur Begründung, inhaltlichen Ausgestaltung und Änderung unserer Vertragsbeziehungen – insbesondere im Zusammenhang mit der Vermietung unserer Messeanhänger, der Buchung von Zusatzausstattung (Extras) sowie der Lieferung, dem Aufbau und der Abholung der Anhänger. Rechtsgrundlage hierfür ist Art. 6 Abs. 1 lit. b DSGVO. Die erhobenen Kundendaten werden nach Abschluss des Auftrags oder Beendigung der Geschäftsbeziehung und Ablauf der gesetzlichen Aufbewahrungsfristen gelöscht.</p>
     <p>Eine Zahlungsabwicklung findet auf dieser Website nicht statt; die Abrechnung erfolgt außerhalb der Website im Rahmen des Mietvertrags.</p>
 
