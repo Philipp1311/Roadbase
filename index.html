@@ -271,7 +271,7 @@
 
     .concept-grid {
       display: grid;
-      grid-template-columns: 1fr 1.4fr;
+      grid-template-columns: 1fr 1.6fr;
       gap: 64px;
       align-items: center;
     }
@@ -313,7 +313,7 @@
 
     .concept-viewer {
       width: 100%;
-      height: clamp(420px, 38vw, 70vh);
+      height: clamp(480px, 46vw, 82vh);
       display: block;
       background: transparent;
     }
@@ -349,13 +349,13 @@
       .concept-media { order: -1; max-width: 480px; }
       .concept-viewer {
         order: -1;                       /* Viewer über dem Text anzeigen */
-        height: min(90vw, 62vh);         /* füllt die Breite, bleibt aber im Bildschirm */
+        height: min(100vw, 72vh);        /* mehr Platz, damit das Modell nicht abgeschnitten wirkt */
       }
     }
 
     @media (max-width: 480px) {
       .concept-viewer {
-        height: min(105vw, 58vh);        /* auf kleinen Handys etwas höher */
+        height: min(120vw, 66vh);        /* auf kleinen Handys entsprechend mehr Höhe */
       }
     }
 
@@ -1421,10 +1421,10 @@
         ar-placement="floor"
         ar-scale="fixed"
         xr-environment
-        camera-orbit="30deg 78deg 80%"
-        min-camera-orbit="auto auto 40%"
-        max-camera-orbit="auto auto 130%"
-        field-of-view="28deg"
+        camera-orbit="30deg 78deg 110%"
+        min-camera-orbit="auto auto 60%"
+        max-camera-orbit="auto auto 160%"
+        field-of-view="26deg"
         shadow-intensity="1"
         exposure="1.1"
         class="concept-viewer">
@@ -2017,10 +2017,13 @@
 
       function goTo(i, behavior) {
         const clamped = (i + slides.length) % slides.length;
-        slides[clamped].scrollIntoView({
-          behavior: behavior || (prefersReducedMotion ? 'auto' : 'smooth'),
-          block: 'nearest',
-          inline: 'start'
+        // Nur den Karussell-Track selbst scrollen (nicht scrollIntoView
+        // verwenden – das lässt sonst auch die gesamte Seite zum Bild
+        // hochspringen, sobald das Karussell nicht komplett im
+        // Viewport ist, z. B. beim automatischen Weiterschalten).
+        track.scrollTo({
+          left: slides[clamped].offsetLeft,
+          behavior: behavior || (prefersReducedMotion ? 'auto' : 'smooth')
         });
       }
 
