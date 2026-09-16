@@ -12,7 +12,7 @@
   <style>
     :root {
       --red: #C21717;          /* Pantone 2035 C – Markenrot, Texte/Icons/Rahmen auf dunklem Hintergrund */
-      --red-bright: #DE2424;   /* Aufgehellte Markenrot-Variante für Hover-Zustände – AA konform auf Schwarz */
+      --red-bright: #E63535;   /* Aufgehellte Markenrot-Variante für Hover-Zustände – 4.6:1 auf Schwarz, AA-konform */
       --red-dark: #892A28;     /* Pantone 7621 C – dunkles Markenrot, Light-Mode-Akzente */
       --red-btn: #C21717;      /* Pantone 2035 C – Schaltflächen-Hintergrund: weißer Text 6.13:1 ✓ */
       --black: #000000;        /* RAL 9004 */
@@ -1265,6 +1265,10 @@
       .burger { display: flex; }
     }
     body.light .mobile-menu a { color: #000000 !important; border-bottom-color: rgba(0,0,0,0.08) !important; }
+    /* CTA-Button bleibt weiß auf Rot (sonst gewinnt die generische
+       "body.light .mobile-menu a"-Regel durch höhere Spezifität und macht
+       den Text schwarz – Schwarz auf Rot fällt unter 4,5:1 Kontrast). */
+    body.light .mobile-menu .mob-cta { color: #FFFFFF !important; }
     body.light .mobile-menu { background: rgba(242,242,242,0.98) !important; border-bottom-color: rgba(204,17,17,0.3) !important; }
     #mobile-theme-toggle { color: rgba(255,255,255,0.35); }
     body.light #mobile-theme-toggle { color: rgba(0,0,0,0.35) !important; }
@@ -1477,10 +1481,10 @@
           <div class="image-carousel" role="region" aria-roledescription="Karussell" aria-label="Bildergalerie: Ansichten des Mietpakets" tabindex="0">
             <div class="carousel-track">
               <div class="carousel-slide" role="group" aria-roledescription="Bild" aria-label="1 von 5">
-                <img src="images/galerie-aussen-gesamt.jpg" alt="ROADBASE Messeanhänger mit STICK ON! Branding, aufgebaut mit offener Klappe" loading="lazy">
+                <img src="images/galerie-aussen-gesamt.jpg" alt="ROADBASE Messeanhänger mit STICK ON! Branding, aufgebaut mit ausgeklappter Markise vor einem Firmengebäude" loading="lazy">
               </div>
               <div class="carousel-slide" role="group" aria-roledescription="Bild" aria-label="2 von 5">
-                <img src="images/galerie-aussen-markise.jpg" alt="Ansicht des geöffneten Anhängers mit Treppe und Empfangsbereich" loading="lazy">
+                <img src="images/galerie-aussen-markise.jpg" alt="Seitenansicht des geöffneten Anhängers mit ausgeklappter Markise, Treppe und Empfangsbereich" loading="lazy">
               </div>
               <div class="carousel-slide" role="group" aria-roledescription="Bild" aria-label="3 von 5">
                 <img src="images/galerie-aussen-branding.jpg" alt="Nahaufnahme der Außenfolierung mit dem Schriftzug „STICK ON! – We provide safety“" loading="lazy">
